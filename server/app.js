@@ -5,6 +5,11 @@ const PORT = 5000;
 const {MONGOURI} = require('./keys');
 require('./models/user')
 
+// Middlewares
+app.use(express.json());
+app.use(require('./routes/auth'));
+
+
 app.get('/', (req, res)=>{
   res.send("Hello world")
 })
