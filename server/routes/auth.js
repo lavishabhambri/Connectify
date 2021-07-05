@@ -8,9 +8,9 @@ const {JWT_SECRET} = require('../keys');
 const requireLogin = require('../middleware/requireLogin')
 
 // If user wants to access the protected route then the user must be logged in and it is checked by middleware
-router.get('/protected', requireLogin, (req,res)=>{
-  res.send("Hello user");
-})
+// router.get('/protected', requireLogin, (req,res)=>{
+//   res.send("Hello user");
+// })
 
 router.post('/signup',(req, res)=>{
   // Dereferencing

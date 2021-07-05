@@ -3,16 +3,7 @@ const app = express();
 const mongoose = require('mongoose');
 const PORT = 5000;
 const {MONGOURI} = require('./keys');
-require('./models/user')
 
-// Middlewares
-app.use(express.json());
-app.use(require('./routes/auth'));
-
-
-app.get('/', (req, res)=>{
-  res.send("Hello world")
-})
 
 // Connect to DB
 mongoose.connect(MONGOURI,{
@@ -28,6 +19,14 @@ mongoose.connection.on('error', (err)=>{
   console.log("Error connecting to mongoose ", err);
 })
 
+require('./models/user')
+require('./models/post')
+
+
+// Middlewares
+app.use(express.json());
+app.use(require('./routes/auth'));
+app.use(require('./routes/post'));
 
 app.listen(PORT,()=>{
   console.log("server is running on port:", PORT);
