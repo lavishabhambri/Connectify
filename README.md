@@ -1,1 +1,1 @@
-# ChattyApp
+# Connectify
